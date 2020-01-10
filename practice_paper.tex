@@ -1,0 +1,509 @@
+\documentclass[11pt]{article}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage[margin=3cm]{geometry}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\makeatletter
+\renewcommand
+\maketitle
+{
+    \bgroup
+    \setlength{\parindent}{0pt}
+    \begin{flushleft}
+        {\huge \@title}\\[5pt]
+        \@author\\
+        \@date
+    \end{flushleft}\egroup}
+\makeatother
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\author{Max Schik}
+\title{Practice examples for Programming}
+\date{Way too early in the morning}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section*{Small disclaimer}
+Please don't make syntax mistakes. Don't miss a semicolon or a missing "this" or something like "for (int i = 0; i {\underline{\textless=}} 420; i++)". You can use System.out.println() for printing out stuff. Don't use any packages that have to be imported. Follow the KIT styleguide.
+
+\section{Idiot test}
+
+\subsection{Basic java syntax}
+
+Write down a main function. It should create a variable named "funny" for a byte sized number and give it the value 69. Also add an array named "bird" (dt. Feld, warum auch immer) of single characters that holds only the values 'F', 'o', 'g', 'e', 'l'. Print out the 3rd element of the array.
+
+\begin{lstlisting}[escapechar=\@]
+// Idiot test
+@\colorbox{lightgray}{\makebox(400,99){}}@
+
+\end{lstlisting}
+
+\subsection{Mandatory interface excercise}
+
+Add the method "endMe" to the interface. The method gets a string "please" as a parameter and returns an Object of the type "Attention".
+
+
+\begin{lstlisting}[escapechar=\@]
+interface CryForHelp {
+@\colorbox{lightgray}{\makebox(400, 9){}}@
+}
+\end{lstlisting}
+
+
+\subsection{Basic class syntax}
+
+Add a private string of name "name" to the class. Also add a public constructor that takes a string as an argument and creates a class with the attribute "name" set to this string. Add getter and setter for name and write a Java-style comment(!) above it why you should use getter and setters.
+
+\begin{lstlisting}[escapechar=\@]
+public class Idiot {
+@\colorbox{lightgray}{\makebox(300, 9){}}@
+
+@\colorbox{lightgray}{\makebox(300, 36){}}@
+
+// getter
+@\colorbox{lightgray}{\makebox(300, 45){}}@
+
+// setter
+@\colorbox{lightgray}{\makebox(300, 45){}}@
+
+}
+\end{lstlisting}
+
+\section{Flow control}
+
+\subsection{Fruity loopy}
+
+Expand the method to print out every third element starting with the 3rd element
+\begin{lstlisting}[escapechar=\@]
+    public static void thirdElements(int[] someArray) {
+    for (@\colorbox{lightgray}{\makebox(200, 4){}}@) {
+        @\colorbox{lightgray}{\makebox(300, 54){}}@
+    }
+
+} 
+\end{lstlisting}
+
+\subsection{Lowest number}
+
+Expand the method to return the lowest number from an array of ints.
+
+\begin{lstlisting}[escapechar=\@]
+    public static @\colorbox{lightgray}{\makebox(30, 3){}}@ getLowestNumber(int[] numbers) {
+        @\colorbox{lightgray}{\makebox(300, 90){}}@
+    }
+
+\end{lstlisting}
+
+\subsection{Count characters}
+
+Expand the method to return the amount of a given character in an given string. You can use string.split("") to split the string to an string array. The character is also given as a string.
+
+\begin{lstlisting}[escapechar=\@]
+    public static @\colorbox{lightgray}{\makebox(30, 3){}}@ countCharacters(String character, String string) {
+        @\colorbox{lightgray}{\makebox(300, 90){}}@
+    }
+\end{lstlisting}
+
+\subsection{Find shared numbers}
+
+Given two integer arrays, find all shared numbers (numbers that are in both arrays) and print them. Not on a piece of paper but on the command line. You fucking small brain. You can expect that every number is unique in its array. Expand the method accordingly.
+
+\begin{lstlisting}[escapechar=\@]
+    public static @\colorbox{lightgray}{\makebox(30, 5){}}@ sharedNumbers(@\colorbox{lightgray}{\makebox(90, 5){}}@, @\colorbox{lightgray}{\makebox(90, 5){}}@) {
+        @\colorbox{lightgray}{\makebox(300, 135){}}@
+    }
+\end{lstlisting}
+
+\section{Object oriented plitsch platsch}
+
+\subsection{Some basic questions}
+
+{\bf What does the operator \textit{static} mean? What's special about static functions?}\\
+\colorbox{lightgray}{\makebox(400, 36){}}\\
+{\bf Name three differences between \textit{Abstract class} and \textit{interface}:}\\
+\colorbox{lightgray}{\makebox(400, 63){}}\\
+{\bf Who can access a class function with the modifier \textit{protected}?}\\
+\colorbox{lightgray}{\makebox(400, 18){}}\\
+{\bf What do you write in a Javadoc-style comment for a method?}\\
+\colorbox{lightgray}{\makebox(400, 63){}}\\
+
+\newpage
+\subsection{Inheritance}
+
+Given the class \textit{Bird}, inherit a new class from it with the name \textit{Lovebird} and override the \textit{fly} method so that it returns "Cute flying". Also, add a public constructor and a new public function named \textit{beCute} that returns nothing, takes no arguments and has an empty body.
+
+\begin{lstlisting}[escapechar=\@]
+    // Bird class
+    public class Bird {
+        private Color color;
+
+        public Bird(Color color) {
+            this.color = color;
+        }
+
+        public String fly() {
+            return "Just flying";
+        }
+    }
+
+    // Lovebird class
+
+    @\colorbox{lightgray}{\makebox(400, 360){}}@
+\end{lstlisting}
+
+\subsection{Polymorphie}
+First, checkout those awesome classes and functions I wrote.\\
+
+\begin{lstlisting}
+    public class Dog {
+        /** .... **/
+
+        public Dog(/** ... **/) {
+            /** ... **/
+        }
+
+        public String bark() {
+            return "Woof";
+        }
+    }
+
+    public class ScaredDog extends Dog {
+        public ScaredDog(/** ... **/) {
+            /** ... **/
+        }
+
+        @Override
+        public String bark() {
+            return "scared wuf"
+        }
+
+        public String runAway() {
+            return "*sound of dog running away*"
+        }
+    }
+
+    public class OldDog extends Dog {
+        public OldDog(/** ... **/) {
+            /** ... **/
+        }
+    }
+\end{lstlisting}
+
+Write down the given function calls output. If it would throw an error, write down "Error" and try to explain why it would throw an error.
+
+\begin{lstlisting}[escapechar=\@]
+    ScaredDog ike = new ScaredDog();
+    Dog wufwuf = new ScaredDog();
+    OldDog ronja = new OldDog();
+
+    // write down the given output;
+    ike.runAway(); @\colorbox{lightgray}{\makebox(300, 18){}}@
+
+    wufwuf.runAway(); @\colorbox{lightgray}{\makebox(300, 18){}}@
+
+    wufwuf.bark(); @\colorbox{lightgray}{\makebox(300, 18){}}@
+
+    ronja.bark(); @\colorbox{lightgray}{\makebox(300, 18){}}@
+
+    ike.runAway(); @\colorbox{lightgray}{\makebox(300, 18){}}@
+
+\end{lstlisting}
+
+\section{Find the errors}
+Mistakes were made. People were made. Some people are mistakes. But that is non of your business, so now you search for mistakes of any kind (except grammar cause I suck at it). That means logic errors, syntax errors or violations against the styleguide (the worst kind of mistake in my humble opinion).
+\subsection{Treshhold function}
+
+\begin{lstlisting}
+    /**
+    * this method prints all numbers from an array that are bigger 
+    * than the treshhold to the command line
+    *
+    * @param inputArray the given array
+    * @param number the treshhold
+    */
+    public static String Treshhold(inputArray, void number) {
+        for (int i; i <= inputArray.length; i++) {
+            if (inputArray[i] < number) {
+                Sytem.out.println(inputArray[i])
+            }
+        }
+    }
+\end{lstlisting}
+
+\subsection{Concatenate a string array}
+\begin{lstlisting}
+    /**
+    * adds all strings from an array together
+    * @param Strings the given array of strings
+    * @return the concatenated string
+    */
+    public static concatenateString(String[] Strings) {
+        output = ""
+        for (String strings : Strings) {
+            output += strings;
+        }
+        return output;
+    }
+\end{lstlisting}
+
+\subsection{Some class-stuff}
+\begin{lstlisting}
+    public class VideoGame {
+        public int hours;
+
+        public VideGame() {
+            hours = hours;
+        }
+
+        private getName() {
+            return this.name;
+        }
+    }
+
+    VideoGame.setHours(250)
+    VideoGame.getName();
+
+\end{lstlisting}
+
+\section{Solutions}
+\subsection*{1.1}
+\begin{lstlisting}
+    // Idiot test
+    public static void main(String[] args) {
+        byte funny = 69;
+        char[] bird = new char[]{'F', 'o', 'g', 'e', 'l'};
+
+        System.out.println(bird[2]);
+    }
+\end{lstlisting}
+
+\subsection*{1.2}
+\begin{lstlisting}
+    interface CryForHelp {
+        public Attention endMe(String please);
+    }
+\end{lstlisting}
+
+\newpage
+\subsection*{1.3}
+\begin{lstlisting}
+    public class Idiot {
+        private String name;
+
+        public Idiot(String name) {
+            this.name = name;
+        }
+
+        // we need getters and setters for security reasons and data encapsulation
+
+        // getter
+        public String getName() {
+            return this.name;
+        }
+
+        // setter
+        public void setName(String name) {
+            this.name = name;
+        }
+    }
+\end{lstlisting}
+
+\subsection*{2.1}
+\begin{lstlisting}
+    public static void thirdElements(int[]  someArray) {
+        for (int i = 2; i < someArray.length; i+=3) {
+            System.out.println(someArray[i]);
+        }
+    }
+\end{lstlisting}
+
+\subsection*{2.2}
+\begin{lstlisting}
+    public static int getLowestNumber(int[] numbers) {
+        int lowestNumber = numbers[0];
+
+        for (int i = 1; i < numbers.length; i++) {
+            if (numbers[i] < lowestNumber) {
+                lowestNumber = numbers[i];
+            }
+        }
+
+        return lowestNumber;
+    }
+\end{lstlisting}
+
+\newpage
+\subsection*{2.3}
+\begin{lstlisting}
+    public static int countCharacters(String character, String string) {
+        int count = 0;
+        String[] stringArray = string.split("");
+
+        for (String stringChar : stringArray) {
+            if (stringChar.equals(character)) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+\end{lstlisting}
+
+\subsection*{2.4}
+\begin{lstlisting}
+    public static void sharedNumbers(int[] firstArray, int[] secondArray) {
+        for (int i = 0; i < firstArray.length; i++) {
+            for (int j = 0; j < secondArray.length; j++) {
+                if (firstArray[i] == secondArray[j]) {
+                    System.out.println(firstArray[i]);
+                }
+            }
+        }
+    }
+\end{lstlisting}
+
+\subsection*{3.1}
+{\bf What does the operator \textit{static} mean? What's special about static functions?}\\
+The static operator on a technical level means that the variable/attribute gets initialized on compile time, not on runtime. That means its the same for every instance of an class (so for every object its the same) and normally gets referenced by Class.name. A static functions doesn't belong to an object, but to a class.\\
+{\bf Name three differences between \textit{Abstract class} and \textit{interface}:}\\
+Just three examples:\\
+Abstract class gets inherited, not implemented.\\
+Abstract class allow for implementations of methods, not just declaration.\\
+Interfaces can only have public methods, Abstract class allows for every modifier.\\
+
+{\bf Who can access a class function with the modifier \textit{protected}?}\\
+Only the class itself and classes inherited from that class.\\
+{\bf What do you write in a Javadoc-style comment for a method?}\\
+Description of the method, paramter description, possible excpetions and expcetion cases, what the method returns.\\
+
+\subsection*{3.2}
+\begin{lstlisting}
+    // Bird class
+    public class Bird {
+        private Color color;
+
+        public Bird(Color color) {
+            this.color = color;
+        }
+
+        public String fly() {
+            return "Just flying";
+        }
+    }
+
+    // Lovebird class
+
+    public class Lovebird extends Bird {
+        public Lovebird(Color color) {
+            super(color);
+        }
+
+        @Override
+        public String fly() {
+            return "Cute flying";
+        }
+
+        public void beCute() {
+        }
+    }
+\end{lstlisting}
+
+\subsection*{3.3}
+\begin{lstlisting}[escapechar=\@]
+    ScaredDog ike = new ScaredDog();
+    Dog wufwuf = new ScaredDog();
+    OldDog ronja = new OldDog();
+
+    // write down the given output;
+    ike.bark; // "scared wuf"
+
+    wufwuf.runAway(); // Error, wufwuf is of type dog and doesnt have runAway as a function
+
+    wufwuf.bark(); // "scared wuf"
+
+    ronja.bark(); // "Woof"
+
+    ike.runAway(); // "*sound of dog running away*"
+
+\end{lstlisting}
+
+\subsection*{4.1}
+\begin{lstlisting}
+    /**
+    * this method prints all numbers from an array that are bigger 
+    * than the treshhold to the command line
+    *
+    * @param inputArray the given array
+    * @param number the treshhold
+    */
+    public static void treshhold(int[] inputArray, int number) { // return type should be void, treshhold should be lowerCamelCase, inputArray was missing its type, number is definitly not void
+        for (int i = 0; i < inputArray.length; i++) { // i had no value, <= is wrong cause it would get out of bound of the array 
+            if (inputArray[i] > number) { // < should be >, logic error
+                Sytem.out.println(inputArray[i]); // missing semicolon
+            }
+        }
+    }
+\end{lstlisting}
+
+\subsection*{4.2}
+\begin{lstlisting}
+    /**
+    * adds all strings from an array together
+    * @param Strings the given array of strings
+    * @return the concatenated string
+    */
+    public static String concatenateString(String[] strings) { // missing return type, Strings should be lowerCamelCase
+        String output = "" // missing type
+        for (String singleString : strings) { // can use strings for only one variable, so renamed
+            output += strings;
+        }
+        return output;
+    }
+\end{lstlisting}
+
+\newpage
+\subsection*{4.3}
+\begin{lstlisting}
+    public class VideoGame {
+        private int hours; // attributes always private
+        private String name; // is needed later
+
+        public VideGame(int hours, String name) { //missing parameters
+            this.hours = hours; // missing this
+            this.name = name;
+        }
+
+        public String getName() { // wrong modifier, missing return type
+            return this.name;
+        }
+    }
+
+    VideoGame stardewValley = new VideoGame(17, "Stardew Valley"); // we need an object
+    stardewValley.setHours(250) // cant call non-static functions on classes, so we need the object
+    stardewValley.getName(); // same as above
+\end{lstlisting}
+\end{document}
